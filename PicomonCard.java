@@ -38,51 +38,52 @@ public class PicomonCard {
     }
 
     public boolean beats(PicomonCard opponent) {
-        if (element == PicomonElement.FIRE && opponent.getElement() == PicomonElement.AIR) 
+        if (element == PicomonElement.FIRE && opponent.getElement() == PicomonElement.AIR) {
             if (power * 3 <= opponent.getPower()) {
-            return false; 
+                return false; 
+            }
         } 
-        if (element == PicomonElement.AIR && opponent.getElement() == PicomonElement.WATER || opponent.getElement() == PicomonElement.EARTH) {
-           if (power * 2 <= opponent.getPower()) {
-            return false; 
-            } 
+        if (element == PicomonElement.AIR && (opponent.getElement() == PicomonElement.WATER || opponent.getElement() == PicomonElement.EARTH)) {
+            if (power * 2 <= opponent.getPower()) {
+                return false; 
+           } 
         }
-        if (element == PicomonElement.WATER && opponent.getElement() == PicomonElement.FIRE || opponent.getElement() == PicomonElement.EARTH) { 
-            if ( power * 2 <= opponent.getPower()) {
-            return false; 
+        if (element == PicomonElement.WATER && (opponent.getElement() == PicomonElement.FIRE || opponent.getElement() == PicomonElement.EARTH)) { 
+            if (power * 2 <= opponent.getPower()) {
+                return false; 
             }
         } 
         if (element == PicomonElement.EARTH && opponent.getElement() == PicomonElement.FIRE) {
             if ( power * 4 <= opponent.getPower()) {
-            return false; 
+                return false; 
             } 
         }
         if (element == PicomonElement.AIR && opponent.getElement() == PicomonElement.FIRE) {
             if (power  <= opponent.getPower()* 3) {
-            return false; 
+              return false; 
             } 
         }
-        if (element == PicomonElement.WATER || element == PicomonElement.EARTH && opponent.getElement() == PicomonElement.AIR) { 
+        if ((element == PicomonElement.WATER || element == PicomonElement.EARTH) && opponent.getElement() == PicomonElement.AIR) { 
             if (power <= opponent.getPower()*2) {
-            return false; 
+                return false; 
             }
         } 
-        if (element == PicomonElement.FIRE || element == PicomonElement.EARTH && opponent.getElement() == PicomonElement.WATER) {  
+        if ((element == PicomonElement.FIRE || element == PicomonElement.EARTH) && opponent.getElement() == PicomonElement.WATER) {  
             if (power <= opponent.getPower()*2) {
-            return false; 
+                return false; 
             }
         } 
         if (element == PicomonElement.FIRE && opponent.getElement() == PicomonElement.EARTH) { 
             if (power  <= opponent.getPower()*4) {
-            return false;
+                return false;
             } 
         } 
-        if (element == opponent.getElement() && power < opponent.getPower()) {
+        if (element == opponent.getElement() && (power <= opponent.getPower())) {
             return false;
         }
         return true;
         
-}
+    }
      // Implement me
     
     @Override
