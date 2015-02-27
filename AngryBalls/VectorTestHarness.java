@@ -10,6 +10,7 @@ public class VectorTestHarness {
 
         test_Vector();
         test_add();
+        test_scale();
 
         System.out.println(successes + "/" + attempts + " tests passed.");
     }
@@ -63,12 +64,24 @@ public class VectorTestHarness {
 
     private static void test_scale() {
         System.out.println("Testing scale...");
-        Vector v = new Vector(5,8);
+        Vector g = new Vector(5,10);
+        Vector xg = g.scale(2);
         try {
-            displaySuccessIfTrue(8 == sum.x());
+            displaySuccessIfTrue(10 == xg.x());
+        } catch(Exception exc) {
+            displayFailure();
+        }
+
+        try {
+            displaySuccessIfTrue(20 == xg.y());
         } catch(Exception exc) {
             displayFailure();
         }
 
 	}
+
+
+
+
 }
+
