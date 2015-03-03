@@ -9,7 +9,6 @@ public class Vector {
         // Impelemnt me!
         this.x = x;
         this.y = y;
-        Vector v = new Vector(x,y);
     } 
     
     public double x() {
@@ -24,12 +23,8 @@ public class Vector {
 
     public Vector add(Vector v) {
         // Implement me!
-        //Vector v = new Vector(a,b),
-        //       w = new Vector(c,d),
-        //      sum= v.add(w);
-
-
-        return null;
+        Vector sum = new Vector(v.x() + this.x, v.y() + this.y);
+        return sum;
     }
 
     public Vector scale(double magnitude) {
@@ -37,7 +32,8 @@ public class Vector {
         // take in the magnitude (.5)
         // and creates a new vector with the values multiplied by .5
         // v1.x.scale()
-        return null;
+        Vector product = new Vector(magnitude*x(), magnitude*y());
+        return product;
     }
 
 }
