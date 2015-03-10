@@ -22,7 +22,7 @@ public class Ball {
     public double getRadius() {
         // Implement me!
         return radius;
-    }
+    } 
     
     public void accelerate(Vector acceleration, double grain) {
         // Implement me!
