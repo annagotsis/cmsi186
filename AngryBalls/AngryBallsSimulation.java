@@ -44,7 +44,7 @@ public class AngryBallsSimulation {
             	for (int i = 0; i < args.length; i++) { 
                     pArgs[i] = Double.parseDouble(args[i]);
                 }
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException nfe) {
                 System.out.println(wrongArguments + "\n" + usageError + "\n" + sizes);
             }
 
@@ -57,7 +57,7 @@ public class AngryBallsSimulation {
             	for (int i = 0; i < args.length; i++) { 
                     pArgs[i] = Double.parseDouble(args[i]);
                 }
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException nfe) {
                 System.out.println(wrongArguments + "\n" + usageError + "\n" + sizes);            }
 
 			grain = pArgs[10];
