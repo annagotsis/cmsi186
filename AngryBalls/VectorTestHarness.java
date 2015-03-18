@@ -1,4 +1,3 @@
-
 public class VectorTestHarness {
 
     private static int attempts = 0;
@@ -11,6 +10,9 @@ public class VectorTestHarness {
         test_Vector();
         test_add();
         test_scale();
+        test_accelerate();
+        test_move();
+        test_collision();
 
         System.out.println(successes + "/" + attempts + " tests passed.");
     }
@@ -80,8 +82,46 @@ public class VectorTestHarness {
 
 	}
 
+	private static void test_accelerate() {
+		System.out.println("Testing acceleration...");
+        Vector testLocation = new Vector(10,20);
+        Vector testInitialVelocity = new Vector(20,20);
+        Ball testBall = new Ball(10, testLocation, testInitialVelocity);
+        testBall.accelerate(new Vector(0, -9.8), 1);
+        testBall.move(1);
+		try {
+            displaySuccessIfTrue(10 == testBall.x());
+        } catch(Exception exc) {
+            displayFailure();
+        }
 
+        try {
+            displaySuccessIfTrue(11.2 == testBall.y());
+        } catch(Exception exc) {
+            displayFailure();
+        }
 
+        try {
+            displaySuccessIfTrue(21 == testBall.z());
+        } catch(Exception exc) {
+            displayFailure();
+        }
 
+	} 
+
+    private static void test_move() {
+        System.out.println("Testing movement...");
+
+    }
+
+    private static void test_collision() {
+        System.out.println("Testing collision...");
+    }
 }
+
+
+
+
+
+
 
