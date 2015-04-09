@@ -6,7 +6,12 @@ public class PiEstimator {
 	int numberOfThrows = 10000;
 	
 	if (args.length == 1) {
-		numberOfThrows = Integer.parseInt(args[0]);
+		try { 
+			numberOfThrows = Integer.parseInt(args[0]);
+		} catch (NumberFormatException nfe) {
+			System.out.println("Usage: java PiEstimator <numberOfThrows>");
+			return;
+		}
 	}
 		System.out.println("start");
 
@@ -26,5 +31,6 @@ public class PiEstimator {
 
 		System.out.println("end");
 		System.out.println("Darts: " + numberOfThrows + " Hits: " + successfulThrows + " Pi Estimate: " + 4*((double)successfulThrows/(double)numberOfThrows));
+	
 	}
 }
