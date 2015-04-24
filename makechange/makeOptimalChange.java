@@ -62,18 +62,15 @@ public class MakeOptimalChange {
         
         
         Tally[ ][ ] tallyTable = new Tally[denominations.length][amount + 1];
-        for (int i = 0; i < denominations.length; i++) {
-            tallyTable[i][0] = new Tally(denominations.length);
-            System.out.println(tallyTable[i][0].toString());
-        }
+    
             for (int i = denominations.length-1; i >= 0; i--) {
                 for (int j = 0; j <= amount; j++) {
                 if (i == denominations.length-1) {
                     tallyTable[i][amount] = new Tally(amount/denominations[i]);
                 } else if (j < denominations[i]) {
-                    tallyTable[i][j] = tallyTable[i-1][j];
+                    tallyTable[i][j] = tallyTable[][j];
                 } else {
-                    tallyTable[i][j] = tallyTable[i][j].add(tallyTable[i][j] - denominations[i]]);
+                    tallyTable[i][j] = tallyTable[i][j];
                 }
             }
         }
