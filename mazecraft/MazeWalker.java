@@ -74,26 +74,28 @@ public class MazeWalker {
         beenThere[currentY][currentX] = true;
         WalkerState direction = WalkerState.IMPOSSIBLE_TO_GET_THERE;
         
-        if (beenThere[currentY][currentX] = true) {
-            if (currentX == destinationX && currentY == destinationY) {
+
+        if (currentX == destinationX && currentY == destinationY) {
                 return WalkerState.THERE_ALREADY;
             } else if (maze.getLocation(currentX, currentY).getRight().isOpen() && !beenThere[currentY][currentX+1]) {
                 direction = WalkerState.MOVE_RIGHT;
+                
             } else if (maze.getLocation(currentX, currentY).getLeft().isOpen() && !beenThere[currentY][currentX-1]) {
                 direction = WalkerState.MOVE_LEFT;
+               
             } else if (maze.getLocation(currentX, currentY).getAbove().isOpen() && !beenThere[currentY-1][currentX]) {
                 direction = WalkerState.MOVE_UP;
+                
             } else if (maze.getLocation(currentX, currentY).getBelow().isOpen() && !beenThere[currentY+1][currentX]) {
                 direction = WalkerState.MOVE_DOWN;
+                
             }  
-
-            if (direction != null) { //He can move forward, so let's actually move him
+            if (direction != WalkerState.IMPOSSIBLE_TO_GET_THERE) {
                 pathIndex++;
                 path[pathIndex] = direction;
                 return direction;
-            }
-
-        } else if (direction == null) {
+           
+            } else {
                 if (pathIndex == -1) {
                     direction = WalkerState.IMPOSSIBLE_TO_GET_THERE;
                 } else if (path[pathIndex] == (WalkerState.MOVE_RIGHT)) {
@@ -109,13 +111,9 @@ public class MazeWalker {
                     pathIndex--;
                     direction = WalkerState.MOVE_UP;
                 }
-                return direction;
-            } else {
-                return WalkerState.THERE_ALREADY;
             }
-        
-            return WalkerState.IMPOSSIBLE_TO_GET_THERE;
-    }   
+                return direction;
+        } 
 
 
     /**
